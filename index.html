@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
+    <title>Tamene Hambisa | Portfolio</title>
     <style>
-       
+        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +17,10 @@
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
-       
+        /* Navigation Bar */
         nav {
             background: #1a252f;
             color: white;
@@ -59,11 +60,11 @@
             color: #3498db;
         }
 
-        /* Hero Section (Introduction) */
+        /* Hero Section */
         .hero {
             height: 80vh;
-            /* Update this URL if you have your own background image */
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
+            /* Background image URL - Replace with your actual image */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1352&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -88,7 +89,18 @@
         }
         .btn:hover { background: #2980b9; }
 
-        /* About Section */
+        /* Photo Styling in Hero Section */
+        .hero .profile-photo {
+            width: 180px; /* Size of the photo */
+            height: 180px;
+            border-radius: 50%; /* Makes it circular */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: 5px solid #3498db; /* Border color */
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Shadow effect */
+        }
+
+        /* Section Styling */
         .section {
             padding: 80px 10%;
             text-align: center;
@@ -112,7 +124,35 @@
             transform: translateX(-50%);
         }
 
-        /* Portfolio/Projects Grid */
+        /* About Me Section with Photo */
+        .about-content {
+            max-width: 800px;
+            margin: 40px auto 0 auto; /* Center align the whole content */
+            text-align: left;
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Vertically align items */
+            gap: 30px; /* Space between photo and text */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center; /* Center content when wrapped */
+        }
+
+        .about-content .profile-photo-about {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px; /* Slightly rounded corners */
+            object-fit: cover;
+            flex-shrink: 0; /* Prevent photo from shrinking */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .about-content .about-text {
+            flex-grow: 1; /* Allow text to take up remaining space */
+        }
+        
+        .about-content p { margin-bottom: 15px; }
+        .about-content h3 { margin-top: 20px; margin-bottom: 10px; color: #2c3e50; }
+
+        /* Project Grid */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -129,14 +169,12 @@
         }
 
         .project-card:hover { transform: translateY(-10px); }
-
         .project-card img { width: 100%; height: 200px; object-fit: cover; }
-
         .project-info { padding: 20px; }
         .project-info h3 { margin-bottom: 10px; color: #2c3e50; }
         .project-info p { font-size: 14px; color: #7f8c8d; }
 
-        /* Contact Section */
+        /* Contact Form */
         .contact-container {
             max-width: 700px;
             margin: 40px auto;
@@ -153,12 +191,13 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             outline: none;
+            font-size: 15px;
         }
 
         .contact-container button {
             width: 100%;
             padding: 12px;
-            background: #3498db; /* Using the primary blue color */
+            background: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
@@ -169,6 +208,26 @@
         }
         .contact-container button:hover { background: #2980b9; }
 
+  /* Social Media Links */
+        .social-links, .social-links-contact {
+            margin-top: 20px;
+        }
+        .social-links a, .social-links-contact a {
+            color: white; /* Color for footer links */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px; /* Larger size for icons if used */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .social-links-contact a {
+             color: #3498db; /* Color for contact section links */
+        }
+        .social-links a:hover, .social-links-contact a:hover {
+            color: #2980b9;
+        }
+
+        /* Footer */
         footer {
             background: #1a252f;
             color: white;
@@ -180,6 +239,17 @@
             font-size: 12px;
             color: #7f8c8d;
             margin-top: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; text-align: center; margin-top: 15px; }
+            nav ul li { margin: 5px 0; }
+            .hero h1 { font-size: 40px; }
+            .hero p { font-size: 18px; }
+            .section { padding: 60px 10%; }
+            .about-content { flex-direction: column; } /* Stack photo and text on small screens */
+            .about-content .profile-photo-about { margin-bottom: 40px; }
         }
     </style>
 </head>
@@ -196,6 +266,8 @@
     </nav>
 
     <header class="hero" id="home">
+        <!-- Replace 'images.jpg' with the actual path to your photo -->
+        <img src="df.jpg" alt=" Tamene Hambisa About Photo" class="profile-photo">
         <h1>Hi, I'm Tamene Hambisa</h1>
         <p>Full-Stack Web Developer & Designer</p>
         <a href="#projects" class="btn">View My Work</a>
@@ -203,25 +275,32 @@
 
     <section class="section" id="about">
         <h2>About Me</h2>
-        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <p>
-                My name is <strong>Tamene Hambisa</strong>, a dedicated Computer Science student with a profound passion for technology. 
-                I view coding as a medium to build solutions that bridge the gap between imagination and reality.
-            </p>
-            <br>
-            <h3>Technical Skills</h3>
-            <p><strong>Languages:</strong> Python, Java, C++, C#, JavaScript, PHP</p>
-            <p><strong>Web:</strong> React.js, Tailwind CSS, Node.js, Firebase, MySQL</p>
+        <div class="about-content">
+            <!-- Replace 'images/your_about_photo.jpg' with your photo for the about section -->
+            <img src="photo.jpg" alt="Tamene Hambisa About Photo" class="profile-photo-about">
+            <div class="about-text">
+                <p>
+                    My name is <strong>Tamene Hambisa</strong>, a dedicated Computer Science student with a profound passion for technology. 
+                    I view coding as a medium to build solutions that bridge the gap between imagination and reality.
+                </p>
+                <p>
+                    I am constantly seeking to expand my knowledge and skills in web development, aiming to create efficient, scalable, and user-friendly applications. My goal is to contribute to innovative projects and grow as a professional in the tech industry.
+                </p>
+                <h3>Technical Skills</h3>
+                <p><strong>Languages:</strong> Python, Java, C++, C#, JavaScript, PHP</p>
+                <p><strong>Web Technologies:</strong> React.js, Node.js, Firebase, MySQL, Tailwind CSS</p>
+            </div>
         </div>
     </section>
 
-    <section class="section" id="projects" style="background
--color: #ebedef;">
+    <section class="section" id="projects" style="background-color: #ebedef;">
         <h2>Recent Projects</h2>
         <div class="project-grid">
             <div class="project-card">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=60" alt="Admin Dashboard Project">
-                <div class="project-info">
+
+
+<div class="project-info">
                     <h3>Admin Dashboard</h3>
                     <p>Business management system to track sales and users.</p>
                 </div>
@@ -248,8 +327,7 @@
         <p>Your message will be sent directly to my email.</p>
         
         <div class="contact-container">
-            <!-- *** HERE IS THE KEY CHANGE *** -->
-            <!-- REPLACE "YOUR_UNIQUE_FORM_ID_HERE" WITH THE ACTUAL ID YOU GET FROM FORMSPREE.IO -->
+            <!-- !!! IMPORTANT: Replace YOUR_UNIQUE_FORM_ID_HERE with your actual Formspree ID !!! -->
             <form action="https://formspree.io/f/xbdokpre" method="POST">
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="_replyto" placeholder="Your Email Address" required>
@@ -258,12 +336,27 @@
                 <button type="submit">Send Message</button>
             </form>
         </div>
+        
+        <div class="social-links-contact">
+            <p>Or connect with me on:</p>
+            <!-- Replace '#' with your actual social media profile links -->
+            <a href="https://www.linkedin.com/in/tamene-hambisa-..." target="_blank">LinkedIn</a> |
+            <a href="https://github.com/TameneHambisa" target="_blank">GitHub</a> |
+            <a href="https://t.me/tamenecsmu28" target="_blank">Telegram</a>
+            <!-- Add more links if you have them -->
+        </div>
     </section>
     
     <footer>
-        <p>&copy; 2024 Tamene Hambisa. All Rights Reserved.</p>
-        <!-- Corrected year to current year -->
+        <p>&copy; 2026 Tamene Hambisa. All Rights Reserved.</p>
+        <div class="social-links">
+            <!-- Social links in footer, adjust color in CSS if needed -->
+             <a href="https://www.linkedin.com/in/tamene-hambisa-..." target="_blank">LinkedIn</a> |
+            <a href="https://github.com/TameneHambisa" target="_blank">GitHub</a> |
+            <a href="https://t.me/tamenecsmu28" target="_blank">Telegram</a>
+        </div>
     </footer>
 
 </body>
 </html>
+
